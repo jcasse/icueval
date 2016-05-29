@@ -1,0 +1,47 @@
+---
+title: "Using vpeval"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using vpeval}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Basic encounter-level metrics (e.g. mortality, length of stay)
+
+Compute basic, encounter-level metrics like mortality and length of stay.
+```{r}
+library(vpeval)
+vpeval_encinfo
+vpeval_demog
+basic_metrics(enc_info = vpeval_encinfo, demographics = vpeval_demog)
+```
+
+
+## Information-theoretic measures
+
+Compute the mutual information of two discrete variables.
+```{r}
+head(mtcars)
+mi_cluster(mtcars, x_col = "cyl", y_col = "am")
+```
+
+## Summary of drugs given
+
+Drug categories are specified by a data frame with columns for `drug` and `category`. The defaults can be loaded from the vpeval package:
+```{r}
+library(vpeval)
+cats = load_drug_categories()
+head(cats)
+```
+The drug events can be summarized by a binary flag indicating whether or not a drug was given:
+```{r}
+library(vpmunge)
+vpmunge_drugs[, c(1,2,5)]
+summarize_drug_categories(vpmunge_drugs, categories = cats)
+```
+
+## 
+

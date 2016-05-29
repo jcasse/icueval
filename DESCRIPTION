@@ -1,0 +1,23 @@
+Package: icueval
+Type: Package
+Title: Analysis for icu data
+Version: 0.1-0
+Date: 2015-11-02
+Authors@R: person("Juan", "Casse", email = "jcasse@chla.usc.edu",
+  role = c("aut", "cre"))
+Description: This package implements functions for evaluating icu data
+  that aren't found in existing R packages.
+License: None yet!
+LazyData: TRUE
+Imports:
+  dplyr (>= 0.4),
+  tidyr,
+  zoo,
+  Rcpp (>= 0.11.3)
+LinkingTo: Rcpp
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown
+RoxygenNote: 5.0.0
+VignetteBuilder: knitr

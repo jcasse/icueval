@@ -1,0 +1,21 @@
+---
+title: "Using icueval"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using icueval}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Basic encounter-level metrics (e.g. mortality, length of stay)
+
+Compute basic, encounter-level metrics like mortality and length of stay.
+```{r}
+library(icueval)
+icueval_encinfo
+icueval_demog
+basic_metrics(enc_info = icueval_encinfo, demographics = icueval_demog)
+```
+
